@@ -10,9 +10,21 @@ You have 90 minutes to complete the objectives for this task in class, following
 - You can look up things in official documentation (Express, MDN, Postgres, pg-promise).
 - Do not copy-paste anything. Learn from the documentation, then close the tab and write the code yourself.
 
+## Setting up
+1. Create a new database on Elephant SQL. You can follow [Stage 1 of these instructions](https://docs.google.com/document/d/1V-zsugFZ-sgxvscthfCgByJfBno6xz9TXFd3BMTsOIE/edit?usp=sharing).
+2. Copy your Elephant SQL database URL to your clipboard.
+3. Fork this repl. Add your first and last name to the repl name.
+4. Click `Manage Secrets` and save your Elephant SQL db url as the value for the `DB_URL` environment variable.
+5. In a repl shell, run the schema file: `psql -d $DB_URL -f db/schema.sql`
+6. Run the seeds file: `psql -d $DB_URL -f db/seeds.sql`
+7. Hit the Run button.
+8. In the Webview component, visit these routes and confirm you get the correct results:
+    - `/` (health check result)
+    - `/actors` (get the list of 6 actors)
+    - `/movies` (get the list of 6 movies)
 
 ## Objectives
-1. Succesfully set up this API server (see `Setting up` below)
+1. Succesfully set up this API server (see `Setting up` above)
 2. Update the schema and seeds file so that we can store information about which actors have appeared in which movies, as well as the name of their character in that movie. (See `Data to store` below). **You should be able to successfully run the updated files against your database.**
 3. Create a new route that returns an array of all the movies that an actor has appeared in (we know the actor's id). Include the title and date of the movie, as well as the character name.
 4. Create a new route that returns an array of all the actors that appeared in a movie (we know the movie's id). Include each actor's first name and last name, as well as the character name.
@@ -28,19 +40,6 @@ You have 90 minutes to complete the objectives for this task in class, following
 - Make sure your server returns a 404 when it is supposed to.
 - You do not need to worry about validating input for this project.
 - There should not be errors or warnings in the console and your server must never crash.
-
-## Setting up
-1. Create a new database on Elephant SQL. You can follow [Stage 1 of these instructions](https://docs.google.com/document/d/1V-zsugFZ-sgxvscthfCgByJfBno6xz9TXFd3BMTsOIE/edit?usp=sharing).
-2. Copy your Elephant SQL database URL to your clipboard.
-3. Fork this repl. Add your first and last name to the repl name.
-4. Click `Manage Secrets` and save your Elephant SQL db url as the value for the `DB_URL` environment variable.
-5. In a repl shell, run the schema file: `psql -d $DB_URL -f db/schema.sql`
-6. Run the seeds file: `psql -d $DB_URL -f db/seeds.sql`
-7. Hit the Run button.
-8. In the Webview component, visit these routes and confirm you get the correct results:
-    - `/` (health check result)
-    - `/actors` (get the list of 5 actors)
-    - `/movies` (get the list of 5 movies)
 
 ## Data to store
 Your database must hold the following information about movies actors have appeared in.
